@@ -2,9 +2,9 @@ name: Publish Docs
 
 on:
   push:
-    branches: [master]
+    branches: [test-demo]
   pull_request:
-    branches: [master]
+    branches: [test-demo]
   workflow_dispatch:
     inputs:
       pr_number:
