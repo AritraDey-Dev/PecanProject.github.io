@@ -31,7 +31,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Calculate BASE_URL
+      - name: Calculate URLs
         run: |
           REPO_NAME=${GITHUB_REPOSITORY#*/}
           OWNER_NAME=${GITHUB_REPOSITORY%/*}
@@ -41,10 +41,14 @@ jobs:
             echo "BASE_URL=/$REPO_NAME/" >> $GITHUB_ENV
           fi
 
+          echo "URL=https://$OWNER_NAME.github.io" >> $GITHUB_ENV
+          echo "Calculated URL: https://$OWNER_NAME.github.io"
+
       - name: Build
         run: npm run build
         env:
           BASE_URL: ${{ env.BASE_URL }}
+          URL: ${{ env.URL }}
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
