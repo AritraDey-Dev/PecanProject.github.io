@@ -101,10 +101,13 @@ jobs:
       - name: Deploy PR Preview
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
           folder: build
           target-folder: pr-${{ inputs.pr_number }}
           clean: true
+          git-config-name: github-actions[bot]
+          git-config-email: github-actions[bot]@users.noreply.github.com
 
       - name: Comment Preview URL
         uses: marocchino/sticky-pull-request-comment@v2
