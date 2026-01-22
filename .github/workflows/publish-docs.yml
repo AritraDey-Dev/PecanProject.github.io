@@ -84,10 +84,10 @@ jobs:
           # Check if it's an org page (owner.github.io)
           if [[ "${REPO_NAME,,}" == "${OWNER,,}.github.io" ]]; then
             BASE_PATH="/pr-$PR_NUM/"
-            FULL_URL="https://${OWNER,,}.github.io/pr-$PR_NUM/"
+            FULL_URL="https://$OWNER.github.io/pr-$PR_NUM/"
           else
             BASE_PATH="/$REPO_NAME/pr-$PR_NUM/"
-            FULL_URL="https://${OWNER,,}.github.io/$REPO_NAME/pr-$PR_NUM/"
+            FULL_URL="https://$OWNER.github.io/$REPO_NAME/pr-$PR_NUM/"
           fi
           
           echo "base_path=$BASE_PATH" >> $GITHUB_OUTPUT
@@ -104,6 +104,7 @@ jobs:
           branch: gh-pages-pr-previews
           folder: build
           target-folder: pr-${{ inputs.pr_number }}
+          clean: true
 
       - name: Comment Preview URL
         uses: marocchino/sticky-pull-request-comment@v2
