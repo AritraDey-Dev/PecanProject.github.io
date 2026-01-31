@@ -26,7 +26,7 @@ module.exports = {
               to: "/documentation/", label: "Documentation",
             },
             {
-              to: "/package-documentation/develop/", label: "Package Documentation",
+              href: "/package-documentation/develop/", label: "Package Documentation",
             },
             {
               to: "/tutorials/", label: "Tutorials",
