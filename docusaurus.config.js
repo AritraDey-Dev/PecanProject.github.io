@@ -29,7 +29,7 @@ module.exports = {
               href: "/package-documentation/develop/", label: "Package Documentation",
             },
             {
-              to: "/tutorials/", label: "Tutorials",
+              href: "/tutorials/", label: "Tutorials",
             },
             {
               to: "http://pecan.ncsa.illinois.edu/pecan/01-introduction.php", label: "Demo"
